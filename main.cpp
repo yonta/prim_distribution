@@ -1,3 +1,4 @@
+#include <cmath>
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -36,11 +37,13 @@ int main()
   size_t finish;
   size_t section;
   cin >> finish >> section;
+  const size_t zero_n =
+      static_cast<size_t>(floor(log10(static_cast<double>(finish)))) + 1;
 
   for (size_t start = 1; start < finish; start += section) {
     size_t end = start + section;
-    cout << setw(2) << setfill('0') << start << "-";
-    cout << setw(2) << setfill('0') << end - 1 << ":";
+    cout << setw(zero_n) << setfill('0') << start << "-";
+    cout << setw(zero_n) << setfill('0') << end - 1 << ":";
     for (size_t i = start; i < end; ++i) {
       if (isPrim(i)) cout << "*";
     }
