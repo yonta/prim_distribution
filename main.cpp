@@ -44,7 +44,7 @@ int main()
     size_t end = start + section;
     cout << setw(zero_n) << setfill('0') << start << "-";
     cout << setw(zero_n) << setfill('0') << end - 1 << ":";
-    for (size_t i = start; i < end; ++i) {
+    for (size_t i = start; i < end && i < finish + 1; ++i) {
       if (isPrim(i)) cout << "*";
     }
     cout << endl;
